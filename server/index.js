@@ -20,4 +20,12 @@ massive({
     console.log('db connected');
 });
 
-app.listen(PORT, ()=>console.log(`Hey Hey Your Port Works Today! on ${PORT}`))
+app.use(
+    session({
+        resave: true,
+        saveUninitialized: false,
+        secret: SESSION_SECRET,
+    })
+);
+
+app.listen(PORT, ()=>console.log(`Hey Hey Your Port Works Today! on ${PORT}`));
